@@ -1,3 +1,4 @@
+// Your full server.js file should look like this:
 require('dotenv').config()
 require('express-async-errors')
 const express = require('express')
@@ -30,6 +31,7 @@ app.use('/', require('./routes/root'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/api/recipes', require('./routes/recipeRoutes'))
+app.use('/api/recipes/:id/reviews', require('./routes/reviewRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)

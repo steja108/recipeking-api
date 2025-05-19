@@ -1,5 +1,5 @@
 const allowedOrigins = [
-    'https://recipeking.onrender.com'
+    'https://recipeking.onrender.com',
 ]
 
 module.exports = allowedOrigins

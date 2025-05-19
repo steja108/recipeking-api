@@ -2,6 +2,29 @@
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 
+const reviewSchema = new mongoose.Schema(
+    {
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User'
+        },
+        rating: {
+            type: Number,
+            required: true,
+            min: 1,
+            max: 5
+        },
+        comment: {
+            type: String,
+            required: true
+        }
+    },
+    {
+        timestamps: true
+    }
+)
+
 const recipeSchema = new mongoose.Schema(
     {
         user: {
@@ -28,6 +51,20 @@ const recipeSchema = new mongoose.Schema(
         cookingTime: {   // New field
             type: Number,
             required: true
+        },
+        category: {
+            type: String,
+            default: 'General'
+        },
+        // New fields for ratings and reviews
+        reviews: [reviewSchema],
+        rating: {
+            type: Number,
+            default: 0
+        },
+        ratingsCount: {
+            type: Number,
+            default: 0
         },
         completed: {
             type: Boolean,
