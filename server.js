@@ -32,6 +32,7 @@ app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/api/recipes', require('./routes/recipeRoutes'))
 app.use('/api/recipes/:id/reviews', require('./routes/reviewRoutes'))
+app.use('/api/role-requests', require('./routes/roleRequestRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)
